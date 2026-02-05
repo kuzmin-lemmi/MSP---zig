@@ -1,0 +1,7 @@
+.git
+.gitignore
+README.md
+backend/
+tasks/
+zig_job_*
+*.md

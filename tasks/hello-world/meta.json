@@ -1,0 +1,8 @@
+{
+  "id": "hello-world",
+  "title": "Привет, мир!",
+  "module": "zig-basics",
+  "type": "io",
+  "time_limit_ms": 3000,
+  "memory_mb": 128
+}
