@@ -13,8 +13,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
     "@vitejs/plugin-react": "^4.2.0"
-    "axios": "^1.6.0"
-    "lucide-react": "^0.292.0"
+    "axios": "^1.6.0",
+    "lucide-react": "^0.292.0",
     "clsx": "^2.0.0"
     "tailwind-merge": "^2.0.0"
   },
@@ -32,6 +32,20 @@
           "transform": {
             "classNameValue": "clsx"
           }
+        }
+      },
+      "react": {
+        "baseName": "React",
+        "transform": {
+          "classNameValue": "className"
+        }
+      }
+    },
+    "lucide-react": {
+      "baseName": "lucide-react"
+    }
+  }
+}
         }
       },
       "react": {
