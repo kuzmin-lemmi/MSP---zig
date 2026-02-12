@@ -4,11 +4,11 @@ from datetime import datetime
 from enum import Enum
 
 class Verdict(str, Enum):
-    CE = "compile_error"
-    TLE = "time_limit_exceeded"
-    RE = "runtime_error"
-    WA = "wrong_answer"
-    OK = "accepted"
+    CE = "CE"
+    TLE = "TLE"
+    RE = "RE"
+    WA = "WA"
+    OK = "OK"
 
 class JobState(str, Enum):
     QUEUED = "queued"
@@ -52,5 +52,7 @@ class JobStatus(BaseModel):
     started_at: Optional[datetime] = None
     finished_at: Optional[datetime] = None
     queue_position: Optional[int] = None
+    eta_ms: Optional[int] = None
     running_for_ms: Optional[int] = None
     result: Optional[JobResult] = None
+    error_message: Optional[str] = None

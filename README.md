@@ -80,7 +80,7 @@ curl http://localhost:8000/jobs/{job_id}
   "queue_position": null,
   "running_for_ms": null,
   "result": {
-    "verdict": "accepted",
+    "verdict": "OK",
     "stdout": "Hello, World!",
     "stderr": "",
     "compile_log": "",
@@ -147,12 +147,15 @@ tasks/<task_id>/
 
 ## Конфигурация
 
-Параметры в `backend/main.py`:
+Параметры через переменные окружения:
 
-```python
-MAX_WORKERS = 2          # Количество параллельных воркеров
-MAX_QUEUE = 200          # Максимальный размер очереди
-JOB_TTL_MINUTES = 30     # Время хранения результатов
+```bash
+MAX_WORKERS=2
+MAX_QUEUE=200
+JOB_TTL_MINUTES=30
+RUNNER_IMAGE=zig-runner:0.13.0
+TASKS_DIR=./tasks
+CODE_MAX_BYTES=131072
 ```
 
 ### Настройка для VPS
@@ -173,7 +176,7 @@ MAX_WORKERS = 4
 - `--cpus=1`: ограничение CPU
 - `--memory=512m`: ограничение памяти
 - `--pids-limit=128`: ограничение процессов
-- Таймаут выполнения: 5 секунд максимум
+- Таймаут выполнения: 3 секунды на тест + общий таймаут на задачу
 
 ## Команды
 
@@ -182,6 +185,7 @@ make build-runner    # Собрать Docker образ
 make run-backend      # Запустить бэкенд
 make clean           # Очистка
 make test            # Проверить health
+make smoke           # E2E smoke-тест verdicts
 ```
 
 ## systemd service

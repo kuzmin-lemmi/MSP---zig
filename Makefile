@@ -1,4 +1,4 @@
-.PHONY: build-runner run-backend clean test
+.PHONY: build-runner run-backend clean test smoke
 
 build-runner:
 	cd runner && bash build.sh
@@ -13,3 +13,6 @@ clean:
 
 test:
 	curl http://localhost:8000/health
+
+smoke:
+	bash scripts/smoke_test.sh
