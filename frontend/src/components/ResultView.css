@@ -1,0 +1,286 @@
+.result-view {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-view:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.job-status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.job-queued {
+  background: #f59e0b;
+  color: white;
+}
+
+.status-badge.job-running {
+  background: #6366f1;
+  color: white;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.status-badge.job-done {
+  background: var(--success-color);
+  color: white;
+}
+
+.status-badge.job-error {
+  background: var(--error-color);
+  color: white;
+}
+
+.job-time {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.job-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cancel-btn {
+  background: var(--error-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #dc2626;
+}
+
+.queue-position {
+  background: var(--accent-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.running-time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.result-details {
+  margin-top: 16px;
+  animation: slideDown 0.3s ease-in;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.compile-log,
+.stderr,
+.error-message {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.compile-log h4,
+.stderr h4,
+.error-message h4 {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+.compile-log pre,
+.stderr pre,
+.error-message p {
+  margin: 0;
+  padding: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: white;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.compile-log pre {
+  color: #f59e0b;
+}
+
+.stderr pre {
+  color: #dc2626;
+}
+
+.error-message p {
+  color: var(--error-color);
+}
+
+.test-results {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.test-results h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.tests-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.test-result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--bg-color);
+}
+
+.test-result.passed {
+  border-color: var(--success-color);
+}
+
+.test-result.failed {
+  border-color: var(--error-color);
+}
+
+.test-number {
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.verdict-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.verdict-badge.OK {
+  background: var(--success-color);
+  color: white;
+}
+
+.verdict-badge.WA {
+  background: var(--warning-color);
+  color: white;
+}
+
+.verdict-badge.CE {
+  background: var(--error-color);
+  color: white;
+}
+
+.verdict-badge.RE {
+  background: #eab308;
+  color: white;
+}
+
+.verdict-badge.TLE {
+  background: #f59e0b;
+  color: white;
+}
+
+.test-io {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
+.test-input,
+.test-output {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.test-input {
+  border-left: 4px solid var(--success-color);
+}
+
+.test-output {
+  border-left: 4px solid var(--error-color);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #6b7280;
+}
+
+.test-input pre,
+.test-output pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-color);
+  max-height: 150px;
+  overflow: auto;
+}
